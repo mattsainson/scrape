@@ -1,0 +1,21 @@
+<h1>Articles</h1>
+
+<a href="/scrape"><button type="button" class="btn btn-secondary">Scrape</button></a>
+<a href="/saved"><button type="button" class="btn btn-success">Saved Articles</button></a>
+
+{{#each articles}}
+<div class="card" style="width: 30rem;">
+  <img src="{{imglink}}" class="card-img-top" alt="{{title}}" data-id="{{id}}">
+  <div class="card-body">
+    <h5 class="card-title" data-id="{{id}}">{{title}}</h5>
+    <p class="card-text" data-id="{{id}}">{{summary}}</p>
+    <a href="{{link}}" target="_blank" class="btn btn-primary link" data-id="{{id}}">Read</a>
+    {{#if scrape}}
+    <button type="button" class="btn btn-success" data-id="{{id}}">Save</button>
+    {{else}}
+    <button type="button" class="btn btn-light" data-id="{{id}}">Notes</button>
+    <button type="button" class="btn btn-danger" data-id="{{id}}">Delete</button>
+    {{/if}}
+  </div>
+</div>
+{{/each}}
